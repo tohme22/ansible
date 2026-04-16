@@ -12,3 +12,4 @@ disableSearch = true
 disableInlineCopyToClipBoard = true
 editURL = ""
 author = "Antoine Tohmé"
+logo = "images/logo.png"
