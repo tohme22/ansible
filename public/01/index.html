@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="fr" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.101.0" />
+    <meta name="description" content="ansible">
+<meta name="author" content="Antoine Tohmé">
+
+    <link rel="icon" href="/ansible/images/logo.png" type="image/x-icon">
+    <title>Introduction à Ansible :: </title>
+
+    
+    <link href="/ansible/css/nucleus.css?1765660974" rel="stylesheet">
+    <link href="/ansible/css/fontawesome-all.min.css?1765660974" rel="stylesheet">
+    <link href="/ansible/css/hybrid.css?1765660974" rel="stylesheet">
+    <link href="/ansible/css/featherlight.min.css?1765660974" rel="stylesheet">
+    <link href="/ansible/css/perfect-scrollbar.min.css?1765660974" rel="stylesheet">
+    <link href="/ansible/css/auto-complete.css?1765660974" rel="stylesheet">
+    <link href="/ansible/css/atom-one-dark-reasonable.css?1765660974" rel="stylesheet">
+    <link href="/ansible/css/theme.css?1765660974" rel="stylesheet">
+    <link href="/ansible/css/tabs.css?1765660974" rel="stylesheet">
+    <link href="/ansible/css/hugo-theme.css?1765660974" rel="stylesheet">
+    
+    <link href="/ansible/css/theme-blue.css?1765660974" rel="stylesheet">
+    
+    
+
+    <script src="/ansible/js/jquery-3.3.1.min.js?1765660974"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+        :not(pre) > code + span.copy-to-clipboard {
+            display: none;
+        }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/ansible/01/">
+    <nav id="sidebar" class="">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a href='/ansible'><img src="/ansible/images/logo.png?height=20&classes=border,shadow"/>
+    </div>
+    
+  </div>
+  
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/ansible/01/" title="Introduction à Ansible" class="dd-item
+        
+        active
+        
+        ">
+      <a href="/ansible/01/">
+          Introduction à Ansible
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/ansible/02/" title="Configurer Ansible " class="dd-item
+        
+        
+        
+        ">
+      <a href="/ansible/02/">
+          Configurer Ansible 
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/ansible/03/" title="Créer des Playbooks" class="dd-item
+        
+        
+        
+        ">
+      <a href="/ansible/03/">
+          Créer des Playbooks
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/ansible/04/" title="Automatiser Linux" class="dd-item
+        
+        
+        
+        ">
+      <a href="/ansible/04/">
+          Automatiser Linux
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/ansible/05/" title="Automatiser Cisco" class="dd-item
+        
+        
+        
+        ">
+      <a href="/ansible/05/">
+          Automatiser Cisco
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/ansible/06/" title="Gathering Facts" class="dd-item
+        
+        
+        
+        ">
+      <a href="/ansible/06/">
+          Gathering Facts
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+          
+        
+    </ul>
+
+    
+    
+
+    
+    <section id="footer">
+      
+    </section>
+  </div>
+</nav>
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            <a href='/ansible/'>Ansible</a> > Introduction à Ansible
+          
+        
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#introduction-à-ansible">Introduction à Ansible</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#cibles-dautomatisation-avec-ansible">Cibles d’automatisation avec Ansible</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#installation">Installation</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#architecture-générale">Architecture générale</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#composants-clés">Composants clés</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#syntaxe">Syntaxe</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              Introduction à Ansible
+            </h1>
+          
+
+        
+
+
+
+	<h2 id="introduction-à-ansible">Introduction à Ansible</h2>
+<p>Ansible offre une <strong>automatisation open source</strong> qui simplifie les tâches et s&rsquo;exécute partout.</p>
+<p>Ansible vous permet <strong>d&rsquo;automatiser pratiquement toutes les tâches</strong>.</p>
+<p>Voici quelques cas d&rsquo;utilisation courants :</p>
+<ul>
+<li>Éliminer les répétitions et simplifier les flux de travail.</li>
+<li>Gérer et maintenir la configuration du système.</li>
+<li>Déployer en continu des logiciels complexes.</li>
+<li>Effectuer des mises à jour progressives sans temps d&rsquo;arrêt.</li>
+</ul>
+<p>Ansible utilise des scripts simples et lisibles, appelés <strong><code>playbooks</code></strong>, pour automatiser vos tâches.
+Vous déclarez l’état souhaité d&rsquo;un système local ou distant dans votre playbook. Ansible garantit que le système reste dans cet état.</p>
+<p>En tant que technologie d&rsquo;automatisation, Ansible est conçu autour des principes suivants :</p>
+<h4 id="architecture-sans-agent">Architecture sans agent</h4>
+<p>Faibles frais de maintenance en évitant l’installation de logiciels supplémentaires sur l’infrastructure informatique.</p>
+<h4 id="simplicité">Simplicité</h4>
+<p>Les playbooks d&rsquo;automatisation utilisent une syntaxe <strong><code>YAML</code></strong> simple pour un code qui se lit comme de la documentation.
+Ansible est également décentralisé, utilisant <strong><code>SSH</code></strong> avec les identifiants du système d&rsquo;exploitation pour accéder aux machines distantes.</p>
+<h4 id="évolutivité">Évolutivité</h4>
+<p>Faites évoluer facilement et rapidement les systèmes que vous automatisez grâce à une conception modulaire qui prend en charge une large gamme de <strong><code>systèmes d'exploitation</code></strong>, de <strong><code>plates-formes cloud</code></strong> et de <strong><code>périphériques réseau</code></strong>.</p>
+<h4 id="prévisibilité">Prévisibilité</h4>
+<p>Lorsque le système est dans l’état décrit par votre playbook, Ansible ne change rien, même si le playbook s’exécute plusieurs fois.</p>
+<hr>
+<h2 id="cibles-dautomatisation-avec-ansible">Cibles d’automatisation avec Ansible</h2>
+<p>Ansible est conçu pour être <strong>sans agent</strong> et <strong>modulaire</strong>, ce qui lui permet d’automatiser une vaste gamme de systèmes et de périphériques. Voici les principales catégories de nœuds pouvant être automatisés :</p>
+<hr>
+<h4 id="-infrastructure--virtualisation">🖥️ Infrastructure &amp; Virtualisation</h4>
+<ul>
+<li><strong>Serveurs Linux</strong> – configuration système, gestion des paquets, services.</li>
+<li><strong>Hôtes Windows</strong> – mises à jour, services, registre, intégration Active Directory.</li>
+<li><strong>VMware vSphere / ESXi</strong> – cycle de vie des VM, modèles, instantanés.</li>
+<li><strong>Proxmox VE</strong> – gestion des clusters, VM, stockage et réseau.</li>
+<li><strong>KVM/libvirt</strong> – création et gestion de machines virtuelles.</li>
+<li><strong>OpenStack</strong> – provisionnement des ressources de calcul, stockage et réseau.</li>
+<li><strong>Fournisseurs cloud</strong> – automatisation AWS, Azure, GCP.</li>
+</ul>
+<hr>
+<h4 id="-conteneurs">📦 Conteneurs</h4>
+<ul>
+<li><strong>Docker</strong> – construction d’images, exécution de conteneurs, gestion réseaux et volumes.</li>
+<li><strong>Podman</strong> – automatisation des conteneurs rootless.</li>
+<li><strong>Kubernetes / OpenShift</strong> – déploiement d’applications, gestion des namespaces, RBAC.</li>
+</ul>
+<hr>
+<h4 id="-réseau--périphériques-de-sécurité">📡 Réseau &amp; Périphériques de sécurité</h4>
+<ul>
+<li><strong>Cisco</strong> – routeurs, commutateurs, pare-feux.</li>
+<li><strong>Juniper, Arista</strong> – automatisation du routage et du switching.</li>
+<li><strong>Fortinet, Palo Alto</strong> – règles de pare-feu, VPN, automatisation de la sécurité.</li>
+<li><strong>F5 BIG-IP</strong> – configuration de load balancer et WAF.</li>
+<li><strong>pfSense / OPNsense</strong> – politiques de pare-feu et de routage.</li>
+<li><strong>Check Point</strong> – automatisation des règles de sécurité et pare-feu.</li>
+</ul>
+<hr>
+<h4 id="-supervision--services-it">📊 Supervision &amp; Services IT</h4>
+<ul>
+<li><strong>Zabbix / Nagios / Prometheus</strong> – configuration de la supervision et alertes.</li>
+<li><strong>ELK / OpenSearch</strong> – gestion des journaux et piles SIEM.</li>
+<li><strong>FreeIPA / Active Directory</strong> – gestion des utilisateurs, groupes et politiques.</li>
+</ul>
+<hr>
+<h4 id="-outils-saas--collaboration">☁️ Outils SaaS &amp; Collaboration</h4>
+<ul>
+<li><strong>GitHub / GitLab</strong> – dépôts, utilisateurs, contrôle d’accès, mise en place CI/CD.</li>
+<li><strong>Atlassian (Jira, Confluence)</strong> – gestion de projet et flux documentaires.</li>
+<li><strong>Slack / Microsoft Teams</strong> – bots, création de canaux, notifications.</li>
+</ul>
+<hr>
+<h4 id="-postes-clients--divers">🛠️ Postes clients &amp; Divers</h4>
+<ul>
+<li><strong>macOS</strong> – gestion de configuration et installation d’applications (via Homebrew).</li>
+<li><strong>Objets connectés (IoT)</strong> – Raspberry Pi ou autres dispositifs avec accès SSH/API.</li>
+<li><strong>Imprimantes, UPS, IPMI/iLO/iDRAC</strong> – mises à jour firmware, contrôle de l’alimentation.</li>
+<li><strong>Bases de données</strong> – automatisation de schémas et configuration MySQL, PostgreSQL, MongoDB.</li>
+</ul>
+<hr>
+<h4 id="-principe-clé">✅ Principe clé</h4>
+<p>Si un système dispose de :</p>
+<ol>
+<li><strong>Un accès SSH</strong>, ou</li>
+<li><strong>Une interface API/REST</strong>, ou</li>
+<li><strong>Une collection/module Ansible existant</strong></li>
+</ol>
+<p>➡️ Alors il peut être automatisé avec Ansible.</p>
+<hr>
+<h2 id="installation">Installation</h2>
+<h4 id="redhatfedoraalmalinux">Redhat/Fedora/AlmaLinux</h4>
+<p>Fedora Linux fournit à la fois le package <strong>Ansible complet</strong> et le package <strong>ansible-core minimal</strong> via les référentiels standard.</p>
+<p>Installez le package complet <strong>ansible</strong> :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#ae81ff">$ sudo dnf install ansible</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">$ ansible --version</span>
+</span></span></code></pre></div><h4 id="ubuntudebiankali">Ubuntu/Debian/Kali</h4>
+<p>Ubuntu fournit des packages Ansible via une archive de packages personnels (PPA) qui contient des versions plus récentes que les référentiels standard.</p>
+<p>Les versions Ubuntu sont disponibles <a href="https://launchpad.net/~ansible/+archive/ubuntu/ansible">dans un PPA ici</a>.</p>
+<p>Configurez le PPA sur votre système et installez Ansible :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#ae81ff">$ sudo apt update</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">$ sudo apt install software-properties-common</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">$ sudo add-apt-repository --yes --update ppa:ansible/ansible</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">$ sudo apt install ansible</span>
+</span></span></code></pre></div><h4 id="windows">Windows</h4>
+<p>Vous ne pouvez pas utiliser un système <strong>Windows</strong> comme nœud de contrôle Ansible.</p>
+<p>👉 Consultez la documentation officielle : <a href="https://docs.ansible.com/ansible/latest/os_guide/intro_windows.html#windows-control-node">Utiliser Windows comme nœud de contrôle</a></p>
+<hr>
+<h2 id="architecture-générale">Architecture générale</h2>
+<p>Ansible automatise la gestion des systèmes distants et contrôle leur état souhaité.</p>
+<p><img src="../images/1.png?height=500&amp;classes=border,shadow,inline" alt=""></p>
+<p>Comme le montre la figure ci-dessus, la plupart des environnements Ansible reposent sur deux composants principaux :</p>
+<h4 id="nœud-de-contrôle">Nœud de contrôle</h4>
+<ul>
+<li>Un système sur lequel Ansible est installé.</li>
+<li>Contient <strong>Ansible</strong> et l’<strong>Inventory</strong>.</li>
+<li>C’est depuis ce nœud que vous exécutez les commandes et gérez l’infrastructure.</li>
+</ul>
+<h4 id="nœud-géré">Nœud géré</h4>
+<ul>
+<li>Les systèmes distants (<strong>serveurs</strong>, <strong>hôtes</strong>, <strong>routeurs</strong> etc.) qui sont administrés par Ansible.</li>
+</ul>
+<hr>
+<h2 id="composants-clés">Composants clés</h2>
+<p>Ces composants sont communs à toutes les utilisations d&rsquo;Ansible. Il est important de les comprendre avant de commencer à utiliser Ansible.</p>
+<h4 id="inventaire">Inventaire</h4>
+<ul>
+<li>Liste de nœuds gérés organisés logiquement.</li>
+<li>L’inventaire est créé sur le <strong>nœud de contrôle</strong> pour décrire les déploiements d’hôtes vers Ansible.</li>
+</ul>
+<h4 id="playbooks">Playbooks</h4>
+<ul>
+<li>Contexte principal d&rsquo;exécution d&rsquo;Ansible, un <strong>playbook</strong> associe les nœuds gérés (hôtes) aux tâches.</li>
+<li>Il contient des <strong>variables</strong>, des <strong>rôles</strong> et une liste ordonnée de <strong>tâches</strong>, et peut être exécuté de manière répétée.</li>
+<li>Le playbook fonctionne comme une boucle implicite sur les hôtes et les tâches mappés, définissant comment les parcourir.</li>
+</ul>
+<h4 id="tâches">Tâches</h4>
+<ul>
+<li>Définissent une <strong>action</strong> à appliquer à un hôte géré.</li>
+<li>Vous pouvez exécuter une tâche unique avec une commande ad hoc en utilisant <code>ansible</code>.</li>
+</ul>
+<h4 id="modules">Modules</h4>
+<p>Les <strong>modules</strong> sont le code ou les binaires qu’Ansible copie et exécute sur chaque nœud géré (lorsque nécessaire) pour accomplir l’action définie dans chaque <strong>tâche</strong>.</p>
+<p>Chaque module a une utilité particulière :</p>
+<ul>
+<li>Administration des utilisateurs dans un type spécifique de base de données.</li>
+<li>Gestion des interfaces VLAN sur un type particulier de périphérique réseau.</li>
+</ul>
+<p>Vous pouvez :</p>
+<ul>
+<li>Invoquer un <strong>seul module</strong> avec une tâche.</li>
+<li>Invoquer <strong>plusieurs modules différents</strong> dans un playbook.</li>
+</ul>
+<p>👉 Pour avoir une idée du nombre de modules incluses dans Ansible, consultez le <a href="https://docs.ansible.com/ansible/latest/collections/index.html#list-of-collections">Collection Index</a>.</p>
+<hr>
+<h2 id="syntaxe">Syntaxe</h2>
+<p>Ansible repose sur la syntaxe <strong>YAML</strong> (<em>Yet Another Markup Language</em>).</p>
+<ul>
+<li><strong>Utilisation principale</strong> : YAML est employé pour rédiger les <strong>Playbooks</strong>, qui définissent les tâches à exécuter sur les nœuds gérés.</li>
+<li><strong>Format lisible par l’humain</strong> : les fichiers YAML sont faciles à lire et à comprendre, même pour les débutants.</li>
+<li><strong>Indentation obligatoire</strong> : la structure repose sur l’indentation (espaces), ce qui rend la hiérarchie claire.</li>
+</ul>
+<h4 id="exemple-dun-fichier-écrit-en-yaml">Exemple d&rsquo;un fichier écrit en YAML</h4>
+<p>Le fichier ci-dessous installe le paquet <code>httpd</code> (serveur web Apache) sur un hôte distant :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span>- <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Installer Apache et activer le service</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">hosts</span>: <span style="color:#ae81ff">webservers</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">become</span>: <span style="color:#66d9ef">yes</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">tasks</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Installer le paquet httpd</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">ansible.builtin.dnf</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">name</span>: <span style="color:#ae81ff">httpd</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">state</span>: <span style="color:#ae81ff">present</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>	- <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Activer et démarrer le service httpd</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">ansible.builtin.service</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">name</span>: <span style="color:#ae81ff">httpd</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">state</span>: <span style="color:#ae81ff">started</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#f92672">enabled</span>: <span style="color:#66d9ef">yes</span>
+</span></span></code></pre></div><p>👉 Grâce à cette syntaxe, vous pouvez décrire facilement l’état souhaité de vos systèmes sans avoir besoin d’écrire du code complexe.</p>
+
+
+
+
+
+<footer class=" footline" >
+	
+</footer>
+
+        
+        </div>
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="/ansible/" title="Ansible"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="/ansible/02/" title="Configurer Ansible " style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/ansible/js/clipboard.min.js?1765660974"></script>
+    <script src="/ansible/js/perfect-scrollbar.min.js?1765660974"></script>
+    <script src="/ansible/js/perfect-scrollbar.jquery.min.js?1765660974"></script>
+    <script src="/ansible/js/jquery.sticky.js?1765660974"></script>
+    <script src="/ansible/js/featherlight.min.js?1765660974"></script>
+    <script src="/ansible/js/highlight.pack.js?1765660974"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/ansible/js/modernizr.custom-3.6.0.js?1765660974"></script>
+    <script src="/ansible/js/learn.js?1765660974"></script>
+    <script src="/ansible/js/hugo-learn.js?1765660974"></script>
+    
+        
+            <script src="/ansible/mermaid/mermaid.js?1765660974"></script>
+        
+        <script>
+            mermaid.initialize({ startOnLoad: true });
+        </script>
+    
+    
+
+  </body>
+</html>

@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="fr" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.101.0" />
+    <meta name="description" content="ansible">
+<meta name="author" content="Antoine Tohmé">
+
+    <link rel="icon" href="/ansible/images/logo.png" type="image/x-icon">
+    <title>Créer des Playbooks :: </title>
+
+    
+    <link href="/ansible/css/nucleus.css?1765660974" rel="stylesheet">
+    <link href="/ansible/css/fontawesome-all.min.css?1765660974" rel="stylesheet">
+    <link href="/ansible/css/hybrid.css?1765660974" rel="stylesheet">
+    <link href="/ansible/css/featherlight.min.css?1765660974" rel="stylesheet">
+    <link href="/ansible/css/perfect-scrollbar.min.css?1765660974" rel="stylesheet">
+    <link href="/ansible/css/auto-complete.css?1765660974" rel="stylesheet">
+    <link href="/ansible/css/atom-one-dark-reasonable.css?1765660974" rel="stylesheet">
+    <link href="/ansible/css/theme.css?1765660974" rel="stylesheet">
+    <link href="/ansible/css/tabs.css?1765660974" rel="stylesheet">
+    <link href="/ansible/css/hugo-theme.css?1765660974" rel="stylesheet">
+    
+    <link href="/ansible/css/theme-blue.css?1765660974" rel="stylesheet">
+    
+    
+
+    <script src="/ansible/js/jquery-3.3.1.min.js?1765660974"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+        :not(pre) > code + span.copy-to-clipboard {
+            display: none;
+        }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/ansible/03/">
+    <nav id="sidebar" class="">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a href='/ansible'><img src="/ansible/images/logo.png?height=20&classes=border,shadow"/>
+    </div>
+    
+  </div>
+  
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/ansible/01/" title="Introduction à Ansible" class="dd-item
+        
+        
+        
+        ">
+      <a href="/ansible/01/">
+          Introduction à Ansible
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/ansible/02/" title="Configurer Ansible " class="dd-item
+        
+        
+        
+        ">
+      <a href="/ansible/02/">
+          Configurer Ansible 
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/ansible/03/" title="Créer des Playbooks" class="dd-item
+        
+        active
+        
+        ">
+      <a href="/ansible/03/">
+          Créer des Playbooks
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/ansible/04/" title="Automatiser Linux" class="dd-item
+        
+        
+        
+        ">
+      <a href="/ansible/04/">
+          Automatiser Linux
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/ansible/05/" title="Automatiser Cisco" class="dd-item
+        
+        
+        
+        ">
+      <a href="/ansible/05/">
+          Automatiser Cisco
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/ansible/06/" title="Gathering Facts" class="dd-item
+        
+        
+        
+        ">
+      <a href="/ansible/06/">
+          Gathering Facts
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+          
+        
+    </ul>
+
+    
+    
+
+    
+    <section id="footer">
+      
+    </section>
+  </div>
+</nav>
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            <a href='/ansible/'>Ansible</a> > Créer des Playbooks
+          
+        
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#rôle-des-playbooks-ansible">Rôle des Playbooks Ansible</a></li>
+        <li><a href="#utiliser-vim-pour-écrire-des-fichiers-yaml">Utiliser Vim pour écrire des fichiers YAML</a></li>
+        <li><a href="#syntaxe-générale-dun-playbook">Syntaxe générale d’un Playbook</a></li>
+        <li><a href="#aide-sur-les-modules">Aide sur les modules</a></li>
+        <li><a href="#exécution-dun-playbook">Exécution d’un Playbook</a></li>
+        <li><a href="#bonnes-pratiques">Bonnes pratiques</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              Créer des Playbooks
+            </h1>
+          
+
+        
+
+
+
+	<h3 id="rôle-des-playbooks-ansible">Rôle des Playbooks Ansible</h3>
+<p>Un <strong>playbook</strong> est un fichier écrit en <strong>YAML</strong> qui décrit l’état souhaité d’un ou plusieurs systèmes gérés par Ansible.<br>
+Il permet d’automatiser des <strong>tâches</strong> de manière <strong>déclarative</strong> (on décrit <em>ce que l’on veut</em>, pas <em>comment le faire</em>).</p>
+<p>Les playbooks permettent par exemple de :</p>
+<ul>
+<li>Installer et configurer des logiciels</li>
+<li>Déployer des applications</li>
+<li>Gérer des services (démarrage, arrêt, redémarrage)</li>
+<li>Configurer le réseau, les utilisateurs, la sécurité, etc.</li>
+</ul>
+<p>👉 Contrairement aux <strong>commandes ad hoc</strong>, qui ne lancent qu’une seule action, un playbook peut contenir une <strong>séquence ordonnée de tâches</strong> organisées et réutilisables.</p>
+<hr>
+<h3 id="utiliser-vim-pour-écrire-des-fichiers-yaml">Utiliser Vim pour écrire des fichiers YAML</h3>
+<p>Lorsque vous éditez des fichiers <strong>YAML</strong> (<code>.yml</code>) avec <strong>vim</strong>, il est recommandé de configurer votre éditeur pour faciliter la lecture et éviter les erreurs d’indentation.</p>
+<p>Vous pouvez créer un fichier <strong><code>.vimrc</code></strong> dans votre répertoire personnel (<code>~/.vimrc</code>) afin que ces réglages soient appliqués automatiquement à chaque ouverture de vim.</p>
+<p><strong>Exemple du fichier <code>.vimrc</code></strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#ae81ff">filetype plugin indent on</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">syntax on</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">set cuc nu et sw=2 ts=2 sts=2 </span>
+</span></span></code></pre></div><ul>
+<li>Activer la détection de type de fichier et l’indentation automatique : <em><code>filetype plugin indent on</code></em></li>
+<li>Activer la coloration syntaxique : <em><code>syntax on</code></em></li>
+<li>Mettre en évidence la colonne du curseur: <em><code>set cuc       </code></em></li>
+<li>Numéroter les lignes : <em><code>set nu             </code></em></li>
+<li>Remplacer les tabulations par des espaces : <em><code>set et</code></em></li>
+<li>Largeur d&rsquo;indentation = 2 espaces : <em><code>set sw=2</code></em></li>
+<li>Taille des tabulations = 2 espaces : <em><code>set ts=2</code></em></li>
+<li>Décalage des tabulations = 2 espaces : <em><code>set sts=2</code></em></li>
+</ul>
+<p>Avec cette configuration, vous évitez les erreurs fréquentes de tabulation dans les fichiers YAML et facilitez l’écriture de vos playbooks Ansible.</p>
+<hr>
+<h3 id="syntaxe-générale-dun-playbook">Syntaxe générale d’un Playbook</h3>
+<p>Un playbook est composé d’une ou plusieurs <strong>plays</strong>.<br>
+Chaque play associe un ou plusieurs <strong>hôtes</strong> (ou groupes d’hôtes) à une série de <strong>tâches</strong>.</p>
+<h4 id="exemple-de-structure-minimale">Exemple de structure minimale</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span>- <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Nom du play (description)</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">hosts</span>: <span style="color:#ae81ff">nom_du_groupe ou hôte</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">become</span>: <span style="color:#66d9ef">yes</span>     <span style="color:#75715e"># Exécuter avec privilèges (sudo)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">tasks</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Description de la tâche</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">module_ansible</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">parametre1</span>: <span style="color:#ae81ff">valeur1</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">parametre2</span>: <span style="color:#ae81ff">valeur2</span>
+</span></span></code></pre></div><h4 id="exemple-concret">Exemple concret</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">$ vim playbook1.yml</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span>- <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Installer Apache et activer le service</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">hosts</span>: <span style="color:#ae81ff">webservers</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">become</span>: <span style="color:#66d9ef">yes</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">tasks</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Installer le paquet httpd</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">ansible.builtin.dnf</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">name</span>: <span style="color:#ae81ff">httpd</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">state</span>: <span style="color:#ae81ff">present</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Activer et démarrer le service httpd</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">ansible.builtin.service</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">name</span>: <span style="color:#ae81ff">httpd</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">state</span>: <span style="color:#ae81ff">started</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">enabled</span>: <span style="color:#66d9ef">yes</span>
+</span></span></code></pre></div><hr>
+<h3 id="aide-sur-les-modules">Aide sur les modules</h3>
+<p>Chaque tâche dans un playbook repose sur un <strong>module Ansible</strong>.</p>
+<h4 id="lister-tous-les-modules">Lister tous les modules</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#ae81ff">$ ansible-doc -l</span>
+</span></span></code></pre></div><p>👉 Cette commande affiche la liste de tous les modules disponibles avec leur description.</p>
+<h4 id="afficher-la-documentation-dun-module-précis">Afficher la documentation d’un module précis</h4>
+<p>Pour découvrir les options disponibles pour un module, utilisez la commande :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#ae81ff">ansible-doc &lt;nom_module&gt;</span>
+</span></span></code></pre></div><p><strong>Exemple :</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#ae81ff">$ ansible-doc dnf</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">&gt; ANSIBLE.BUILTIN.DNF    (/usr/lib/python3.9/site-packages/ansible/modules/dnf.py)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">Installs, upgrade, removes, and lists packages and groups with the `dnf&#39; package</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">manager.</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">ADDED IN</span>: <span style="color:#ae81ff">version 1.9 of ansible-core</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">OPTIONS (= is mandatory)</span>:
+</span></span><span style="display:flex;"><span>...
+</span></span></code></pre></div><h4 id="astuce-dans-laide-interactive">Astuce dans l’aide interactive</h4>
+<p>Une fois la documentation d’un module ouverte, vous pouvez taper :</p>
+<pre tabindex="0"><code>/EX
+
+EXAMPLES:
+
+- name: Install the latest version of Apache
+  ansible.builtin.dnf:
+    name: httpd
+    state: latest
+
+- name: Install Apache &gt;= 2.4
+  ansible.builtin.dnf:
+    name: httpd &gt;= 2.4
+    state: present
+...
+</code></pre><p>👉 Cela affiche directement les <strong>exemples d’utilisation</strong> (syntaxe à copier dans vos playbooks).</p>
+<hr>
+<h3 id="exécution-dun-playbook">Exécution d’un Playbook</h3>
+<p>Pour exécuter un playbook, utilisez la commande :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ ansible-playbook nom_du_playbook.yml
+</span></span></code></pre></div><h4 id="options-utiles">Options utiles</h4>
+<ul>
+<li><code>-i inventory_file</code> → préciser un fichier d’inventaire si différent de la config par défaut.</li>
+<li><code>-l groupe</code> → limiter l’exécution à un groupe d’hôtes.</li>
+<li><code>--syntax-check</code> → vérifier la syntaxe du fichier</li>
+<li><code>--check</code> → exécuter en mode simulation (<em>dry-run</em>) pour voir les changements sans les appliquer.</li>
+<li><code>-v</code> ou <code>-vvv</code> → augmenter le niveau de verbosité (debug).</li>
+</ul>
+<hr>
+<h3 id="bonnes-pratiques">Bonnes pratiques</h3>
+<ul>
+<li>Toujours commencer le playbook avec <code>---</code> (début YAML).</li>
+<li>Donner des noms clairs aux <strong>plays</strong> et aux <strong>tâches</strong>.</li>
+<li>Utiliser <code>become: yes</code> pour les actions nécessitant des privilèges root.</li>
+<li>Tester vos playbooks avec <code>--check</code> avant une exécution réelle.</li>
+<li>Utiliser <code>ansible-doc</code> pour explorer les modules et leurs paramètres.</li>
+</ul>
+<hr>
+<p>✅ Avec les playbooks, Ansible devient un outil puissant pour <strong>industrialiser l’automatisation</strong> et assurer la cohérence de vos infrastructures.</p>
+
+
+
+
+
+<footer class=" footline" >
+	
+</footer>
+
+        
+        </div>
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="/ansible/02/" title="Configurer Ansible "> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="/ansible/04/" title="Automatiser Linux" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/ansible/js/clipboard.min.js?1765660974"></script>
+    <script src="/ansible/js/perfect-scrollbar.min.js?1765660974"></script>
+    <script src="/ansible/js/perfect-scrollbar.jquery.min.js?1765660974"></script>
+    <script src="/ansible/js/jquery.sticky.js?1765660974"></script>
+    <script src="/ansible/js/featherlight.min.js?1765660974"></script>
+    <script src="/ansible/js/highlight.pack.js?1765660974"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/ansible/js/modernizr.custom-3.6.0.js?1765660974"></script>
+    <script src="/ansible/js/learn.js?1765660974"></script>
+    <script src="/ansible/js/hugo-learn.js?1765660974"></script>
+    
+        
+            <script src="/ansible/mermaid/mermaid.js?1765660974"></script>
+        
+        <script>
+            mermaid.initialize({ startOnLoad: true });
+        </script>
+    
+    
+
+  </body>
+</html>

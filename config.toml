@@ -1,0 +1,14 @@
+baseURL = "https://itmt-prof.com/ansible/"
+languageCode = "fr-ca"
+DefaultContentLanguage = "fr"
+theme = "hugo-theme-learn"
+[params]
+themeVariant = "blue"
+titleSeparator = ""
+disableLandingPageButton = true
+landingPageURL = "/ansible/"
+landingPageName = "<i class='fas fa-home'></i> Accueil"
+disableSearch = true
+disableInlineCopyToClipBoard = true
+editURL = ""
+author = "Antoine Tohmé"
