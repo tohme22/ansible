@@ -152,7 +152,15 @@ serveurc | SUCCESS => {
 
 ### 5. Exemple de Playbook
 
-Créons un playbook `webservers.yml` pour installer Apache (`httpd`), activer le pare-feu, et déployer une page web simple :  
+Avant de créer un playbook avec Vim, assurez-vous de créer un fichier `.vimrc` dans votre répertoire personnel afin que ces paramètres soient appliqués automatiquement à chaque ouverture de Vim.
+
+```yaml
+filetype plugin indent on
+syntax on
+set cuc nu et sw=2 ts=2 sts=2 
+```
+
+Créez un playbook `webservers.yml` pour installer Apache (`httpd`), activer le pare-feu, et déployer une page web simple :  
 
 ```yaml
 $ vim webservers.yml
