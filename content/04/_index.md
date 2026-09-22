@@ -154,7 +154,9 @@ serveurc | SUCCESS => {
 
 Avant de créer un playbook avec Vim, assurez-vous de créer un fichier `.vimrc` dans votre répertoire personnel afin que ces paramètres soient appliqués automatiquement à chaque ouverture de Vim.
 
-```yaml
+```yaml¨
+$ vim .vimrc
+
 filetype plugin indent on
 syntax on
 set cuc nu et sw=2 ts=2 sts=2 
