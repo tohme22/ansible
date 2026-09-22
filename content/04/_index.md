@@ -202,14 +202,14 @@ $ vim webservers.yml
 
 ### 6. Lancer le Playbook
 
-##### Vérifiez uniquement la syntaxe du playbook (ne l’exécute pas):
+##### Vérifiez uniquement la syntaxe du playbook (ne l’exécute pas) :
 
 ```yaml
 $ ansible-playbook --syntax-check webservers.yml
 playbook: webservers.yml
 ```
 
-##### Faites un "dry-run" : Simule l’exécution pour voir ce qui serait changé, sans rien appliquer
+##### Faites un "dry-run" : Simule l’exécution pour voir ce qui serait changé, sans rien appliquer :
 
 ```yaml
 $ ansible-playbook --check webservers.yml
@@ -236,7 +236,7 @@ serveurb                   : ok=2    changed=1    unreachable=0    failed=1    s
 
 > **Remarque :** Il est normal que la tâche **« Démarrer et activer le service httpd »** affiche **FAILED** en mode `--check`, car Ansible simule l’installation de `httpd` sans l’installer réellement. Le service `httpd` n’existe donc pas encore sur les machines cibles.
 
-##### Exécutez réellement le playbook et applique toutes les tâches sur les hôtes
+##### Exécutez réellement le playbook et applique toutes les tâches sur les hôtes :
 
 ```yaml
 $ ansible-playbook webservers.yml
