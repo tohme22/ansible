@@ -202,14 +202,14 @@ $ vim webservers.yml
 
 ### 6. Lancer le Playbook
 
-#### Vérifiez uniquement la syntaxe du playbook (ne l’exécute pas):
+##### Vérifiez uniquement la syntaxe du playbook (ne l’exécute pas):
 
 ```yaml
 $ ansible-playbook --syntax-check webservers.yml
 playbook: webservers.yml
 ```
 
-#### Faites un "dry-run" : Simule l’exécution pour voir ce qui serait changé, sans rien appliquer
+##### Faites un "dry-run" : Simule l’exécution pour voir ce qui serait changé, sans rien appliquer
 
 ```yaml
 $ ansible-playbook --check webservers.yml
