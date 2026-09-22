@@ -111,6 +111,7 @@ Fedora Linux fournit à la fois le package **Ansible complet** et le package **a
 Installez le package complet **ansible** :
 
 ```yaml
+$ sudo dnf install epel-release
 $ sudo dnf install ansible
 $ ansible --version
 ```
