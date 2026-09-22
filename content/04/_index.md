@@ -211,6 +211,27 @@ playbook: webservers.yml
 
 # Fait un "dry-run" : simule l’exécution pour voir ce qui serait changé, sans rien appliquer
 $ ansible-playbook --check webservers.yml
+BECOME password: 
+
+PLAY [Configuration des serveurs web] ************************************************************************************
+
+TASK [Gathering Facts] ***************************************************************************************************
+ok: [serveurb]
+ok: [serveura]
+
+TASK [Installer le paquet httpd] *****************************************************************************************
+changed: [serveurb]
+changed: [serveura]
+
+TASK [Démarrer et activer le service httpd] ******************************************************************************
+fatal: [serveura]: FAILED! => {"changed": false, "msg": "Could not find the requested service httpd: host"}
+fatal: [serveurb]: FAILED! => {"changed": false, "msg": "Could not find the requested service httpd: host"}
+
+PLAY RECAP ***************************************************************************************************************
+serveura                   : ok=2    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+serveurb                   : ok=2    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+
+> **Remarque :** Il est normal que la tâche **« Démarrer et activer le service httpd »** affiche **FAILED** en mode `--check`, car Ansible simule l’installation de `httpd` sans l’installer réellement. Le service `httpd` n’existe donc pas encore sur les machines cibles.
 
 # Exécute réellement le playbook et applique toutes les tâches sur les hôtes
 $ ansible-playbook webservers.yml
